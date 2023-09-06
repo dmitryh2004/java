@@ -1,5 +1,7 @@
 package task4;
 import java.util.ArrayList;
+import java.util.Objects;
+
 public class Shop {
     ArrayList<Computer> AvailableComputers = new ArrayList<Computer>();
     int mac_address_amount = 0;
@@ -18,16 +20,16 @@ public class Shop {
     {
         ArrayList<Computer> Computers = new ArrayList<Computer>();
         for (int i = 0; i < AvailableComputers.size(); i++) {
-            if ((arg[0] != "x") && (AvailableComputers.get(i).getCpu() != arg[0])) {
+            if ((!arg[0].equals("x")) && (!AvailableComputers.get(i).getCpu().equals(arg[0]))) {
                 continue;
             }
-            if ((arg[1] != "x") && (AvailableComputers.get(i).getGpu() != arg[1])) {
+            if ((!Objects.equals(arg[1], "x")) && (!Objects.equals(AvailableComputers.get(i).getGpu(), arg[1]))) {
                 continue;
             }
-            if ((arg[2] != "x") && (AvailableComputers.get(i).getRam() < Float.parseFloat(arg[2]))) {
+            if ((!Objects.equals(arg[2], "x")) && (AvailableComputers.get(i).getRam() < Float.parseFloat(arg[2]))) {
                 continue;
             }
-            if ((arg[3] != "x") && (AvailableComputers.get(i).getDisk_space() < Float.parseFloat(arg[3]))) {
+            if ((!Objects.equals(arg[3], "x")) && (AvailableComputers.get(i).getDisk_space() < Float.parseFloat(arg[3]))) {
                 continue;
             }
             Computers.add(AvailableComputers.get(i));
@@ -41,7 +43,7 @@ public class Shop {
     {
         Computer temp;
         mac_address_amount++;
-        if (arg[0] != "x")
+        if (!Objects.equals(arg[0], "x"))
         {
             temp = new Computer(mac_address_amount, arg[0], arg[1], Float.parseFloat(arg[2]),
                     Float.parseFloat(arg[3]), arg[4]);

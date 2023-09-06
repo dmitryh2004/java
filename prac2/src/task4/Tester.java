@@ -24,6 +24,8 @@ public class Tester {
                             if (comps.get(i).getMac_address() == mac) {
                                 Computer temp = comps.get(i);
                                 regard.removeComputer(temp);
+                                System.out.println("Компьютер с mac "+ mac + " успешно удален.");
+                                break;
                             }
                         }
                     }
@@ -31,6 +33,7 @@ public class Tester {
                     {
                         System.out.println("В базе данных нет ни одного компьютера.");
                     }
+                    break;
                 case "remove_params":
                     System.out.print("Введите параметры компьютера, который необходимо удалить: (порядок ввода - cpu, gpu, ram, disk space, additional)");
                     for (int i = 0; i < 5; i++)
@@ -52,6 +55,7 @@ public class Tester {
                     if (!regard.findComputers(arg).isEmpty())
                     {
                         ArrayList<Computer> found = regard.findComputers(arg);
+                        System.out.println("Компьютеры с такими параметрами (всего "+found.size()+"):");
                         for (int i = 0; i < found.size(); i++)
                         {
                             System.out.println(found.get(i));
