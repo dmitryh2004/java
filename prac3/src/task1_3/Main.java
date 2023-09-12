@@ -6,7 +6,7 @@ public class Main {
         int[] nums = new int[4];
         for (int i = 0; i < 4; i++)
         {
-            nums[i] = rand.nextInt(10, 99);
+            nums[i] = rand.nextInt(89)+10;
             System.out.println(nums[i]);
         }
         boolean isGrowing = true;

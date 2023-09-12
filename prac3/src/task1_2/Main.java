@@ -8,9 +8,9 @@ public class Main {
         for (int i = 0; i < 15; i++)
         {
             double x, y, r;
-            x = rand.nextDouble(-10, 10);
-            y = rand.nextDouble(-10, 10);
-            r = rand.nextDouble(0, 10);
+            x = (double) rand.nextInt(2000) / 100 - 10.0;
+            y = (double) rand.nextInt(2000) / 100 - 10.0;
+            r = (double) rand.nextInt(2000) / 100 - 10.0;
             test.addCircle(new Circle(x,y,r, "circle" + (i+1)));
         }
         System.out.println(test);

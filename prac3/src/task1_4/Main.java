@@ -25,7 +25,7 @@ public class Main {
         int even_n = 0;
         int[] nums = new int[n];
         for (int i = 0; i < n; i++) {
-            nums[i] = rand.nextInt(0, n);
+            nums[i] = rand.nextInt(n);
             if (nums[i] % 2 == 0) even_n++;
         }
         System.out.println("Массив: " + Arrays.toString(nums));
