@@ -1,0 +1,5 @@
+admin admin 9999999
+user_1 user_1 13420
+user_2 user_2 5049
+user_3 user_3 8800
+domashnie_dengi vosem_vosemsot 5553535

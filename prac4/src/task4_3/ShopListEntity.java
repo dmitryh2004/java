@@ -18,14 +18,33 @@ public class ShopListEntity implements ShopList {
 
     @Override
     public void showShopList() {
+        ArrayList<Item> items = new ArrayList<>();
+        ArrayList<Integer> count = new ArrayList<Integer>();
         int total = 0;
+        System.out.println("=========================");
         System.out.println("Список товаров в корзине");
         for (Item item: shopList)
         {
-            System.out.println(item);
+            if (!items.contains(item))
+            {
+                items.add(item);
+                count.add(1);
+            }
+            else {
+                int index = items.indexOf(item);
+                int amount = count.get(index);
+                amount++;
+                count.set(index, amount);
+            }
             total += item.getPrice();
         }
+        for (Item item: items)
+        {
+            int index = items.indexOf(item);
+            System.out.println(item + ", количество: " + count.get(index) + " шт.");
+        }
         System.out.println("Итоговая сумма товаров: " + total + " р.");
+        System.out.println("=========================");
     }
 
     @Override

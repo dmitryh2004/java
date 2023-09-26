@@ -21,7 +21,12 @@ public class CatalogListEntity implements CatalogList {
     @Override
     public CatalogEntity selectCatalog() {
         Scanner sc = new Scanner(System.in);
-        System.out.print("Введите название каталога, который вы хотите выбрать: ");
+        System.out.print("Введите название каталога, который вы хотите выбрать. ");
+        System.out.println("Доступные варианты: ");
+        for (CatalogEntity ce:catalogs)
+        {
+            System.out.println(ce.getName());
+        }
         String name = "";
         if (sc.hasNextLine())
             name = sc.nextLine();

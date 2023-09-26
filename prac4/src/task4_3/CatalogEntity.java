@@ -18,7 +18,12 @@ public class CatalogEntity implements Catalog {
     @Override
     public Item selectItem() {
         Scanner sc = new Scanner(System.in);
-        System.out.print("Введите название товара, который вы хотите выбрать: ");
+        System.out.println("Введите название товара, который вы хотите выбрать. Доступные варианты: ");
+        System.out.println("Доступные варианты: ");
+        for (Item ce:items)
+        {
+            System.out.println(ce.getName());
+        }
         String name = "";
         if (sc.hasNextLine())
             name = sc.nextLine();

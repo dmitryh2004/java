@@ -1,31 +1,73 @@
 package task4_3;
 
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
         User user = new User();
         ShopListEntity korzina = new ShopListEntity(user);
         //инициализация магазина
-        CatalogEntity catalogFood = new CatalogEntity("Еда");
-        CatalogEntity catalogCantselyaria = new CatalogEntity("Канцелярия");
-        CatalogEntity catalogComputer = new CatalogEntity("Компьютерные комплектующие");
-        CatalogEntity catalogBuilding = new CatalogEntity("Все для ремонта");
-        CatalogEntity catalogOther = new CatalogEntity("Прочее");
+        Initialization init = new Initialization();
+        CatalogListEntity catList = init.init();
 
-        CatalogListEntity catList = new CatalogListEntity();
-        catList.addCatalog(catalogFood);
-        catList.addCatalog(catalogCantselyaria);
-        catList.addCatalog(catalogComputer);
-        catList.addCatalog(catalogBuilding);
-        catList.addCatalog(catalogOther);
+        boolean shopping = true;
 
-        CatalogEntity currentCatalog = catList.selectCatalog();
-        if (currentCatalog != null)
+        while(shopping)
         {
-            Item currentItem = currentCatalog.selectItem();
-            if (currentItem != null)
+            CatalogEntity currentCatalog = catList.selectCatalog();
+            if (currentCatalog != null)
             {
-                System.out.print("Введите количество покупаемого товара: ");
+                Item currentItem = currentCatalog.selectItem();
+                if (currentItem != null)
+                {
+                    System.out.print("Введите количество покупаемого товара: ");
+                    Scanner sc = new Scanner(System.in);
+                    int count=0;
+                    if (sc.hasNextInt())
+                    {
+                        count = sc.nextInt();
+                        if (count <= 0) {
+                            count = 0;
+                            System.out.println("Ошибка. Количество товара должно быть положительным");
+                        }
+                        if (count > 0) {
+                            for (int i = 0; i < count; i++)
+                                korzina.addItem(currentItem);
+                            System.out.println("Добавлено " + count + " единиц товара в корзину.");
+                        }
+                    }
+                }
+                else
+                {
+                    System.out.println("Такой товар не найден");
+                }
+            }
+            else
+            {
+                System.out.println("Такой каталог не найден");
+            }
+            System.out.println("Для перехода к оплате введите buy, для просмотра корзины - shoplist, для продолжения - любое другое слово: ");
+            Scanner sc = new Scanner(System.in);
+            while (sc.hasNextLine())
+            {
+                String inp = sc.nextLine();
+                if (inp.equals("buy"))
+                {
+                    shopping = false;
+                    korzina.buy();
+                    break;
+                }
+                else if (inp.equals("shoplist"))
+                {
+                    korzina.showShopList();
+                }
+                else
+                {
+                    break;
+                }
             }
         }
+
+        System.out.println("Спасибо за покупку. Ждем вас снова.");
     }
 }
