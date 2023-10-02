@@ -1,5 +1,7 @@
 package task2.shape;
 
+import java.awt.*;
+
 public class Square extends Rectangle {
 
     public Square() {
@@ -10,7 +12,7 @@ public class Square extends Rectangle {
         this.width = this.length = side;
     }
 
-    public Square(double side, String color, boolean filled) {
+    public Square(double side, Color color, boolean filled) {
         this.width = this.length = side;
         this.color = color;
         this.filled = filled;

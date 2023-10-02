@@ -1,7 +1,7 @@
 package task2.shape;
-
+import java.awt.Color;
 public abstract class Shape {
-    protected String color;
+    protected Color color;
     protected boolean filled;
 
     Shape()
@@ -9,17 +9,17 @@ public abstract class Shape {
 
     }
 
-    Shape(String color, boolean filled)
+    Shape(Color color, boolean filled)
     {
         this.color = color;
         this.filled = filled;
     }
 
-    public String getColor() {
+    public Color getColor() {
         return color;
     }
 
-    public void setColor(String color) {
+    public void setColor(Color color) {
         this.color = color;
     }
 

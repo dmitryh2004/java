@@ -1,14 +1,16 @@
 package task2.shape;
 
+import java.awt.*;
+
 public class Circle extends Shape {
     double radius;
 
-    Circle(double radius)
+    public Circle(double radius)
     {
         this.radius = radius;
     }
 
-    Circle(double radius, String color, boolean filled)
+    public Circle(double radius, Color color, boolean filled)
     {
         this.radius = radius;
         this.color = color;

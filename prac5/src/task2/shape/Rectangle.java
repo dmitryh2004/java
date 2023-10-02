@@ -1,5 +1,7 @@
 package task2.shape;
 
+import java.awt.*;
+
 public class Rectangle extends Shape {
     protected double width, length;
 
@@ -12,7 +14,7 @@ public class Rectangle extends Shape {
         this.length = length;
     }
 
-    public Rectangle(double width, double length, String color, boolean filled) {
+    public Rectangle(double width, double length, Color color, boolean filled) {
         this.width = width;
         this.length = length;
         this.color = color;
