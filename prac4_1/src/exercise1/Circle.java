@@ -3,12 +3,12 @@ package exercise1;
 public class Circle extends Shape {
     double radius;
 
-    Circle(double radius)
+    public Circle(double radius)
     {
         this.radius = radius;
     }
 
-    Circle(double radius, String color, boolean filled)
+    public Circle(double radius, String color, boolean filled)
     {
         this.radius = radius;
         this.color = color;
