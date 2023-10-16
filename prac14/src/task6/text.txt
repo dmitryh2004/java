@@ -1,0 +1,7 @@
+user@example.com
+root@localhost
+rector@mirea.ru
+not_a_mail@@mail.ru
+@mail.ru
+just a string
+wtf@gmail.com
