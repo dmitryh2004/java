@@ -1,8 +1,10 @@
 package task1;
 
+import javax.swing.*;
+
 public class Main {
     public static void main(String[] args) {
-        CalculatorWindow cw = new CalculatorWindow();
-        cw.initFrame();
+        Frame f1 = new Frame();
+        f1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 }
