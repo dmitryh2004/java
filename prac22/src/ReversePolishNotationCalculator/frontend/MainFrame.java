@@ -31,6 +31,7 @@ public class MainFrame extends JFrame {
             for (int j = 0; j < 4; j++)
             {
                 btn[4*i+j] = new JButton();
+                btn[4*i+j].setFont(font);
                 btnPanel[i].add(btn[4*i+j]);
             }
             add(btnPanel[i]);
@@ -54,10 +55,13 @@ public class MainFrame extends JFrame {
         btnPanel[4] = new JPanel();
         btnPanel[4].setLayout(new GridLayout(1,3,5,5));
         btn[16] = new JButton("<=");
+        btn[16].setFont(font);
         btnPanel[4].add(btn[16]);
         btn[17] = new JButton("Clear");
+        btn[17].setFont(font);
         btnPanel[4].add(btn[17]);
         btn[18] = new JButton("Space");
+        btn[18].setFont(font);
         btnPanel[4].add(btn[18]);
         add(btnPanel[4]);
 
