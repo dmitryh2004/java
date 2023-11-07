@@ -1,16 +1,16 @@
 package ReversePolishNotationCalculator;
 
-import ReversePolishNotationCalculator.backend.CalcRPNExpression;
-import ReversePolishNotationCalculator.backend.IllegalRPNExpressionCalc;
+import ReversePolishNotationCalculator.frontend.MainFrame;
+import ReversePolishNotationCalculator.frontend.RPNCalcController;
+import ReversePolishNotationCalculator.frontend.RPNCalcModel;
+import ReversePolishNotationCalculator.frontend.RPNCalcView;
 
 public class Main {
     public static void main(String[] args) {
-        CalcRPNExpression rpne = new CalcRPNExpression();
-        try {
-            System.out.println(rpne.calcExpression("2 4 / 1 + 2"));
-
-        } catch (IllegalRPNExpressionCalc illegalRPNExpressionCalc) {
-            illegalRPNExpressionCalc.printStackTrace();
-        }
+        MainFrame mf = new MainFrame();
+        RPNCalcView v = new RPNCalcView(mf);
+        RPNCalcModel m = new RPNCalcModel();
+        RPNCalcController c = new RPNCalcController(m, v);
+        mf.setController(c);
     }
 }

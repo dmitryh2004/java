@@ -11,8 +11,8 @@ public class CalcRPNExpression {
             String topString = stack.getTop().getValue();
             if (topString.matches("[+\\-*.\\/]"))
             {
-                String a1 = stack.getNthElement(2).getValue(), a2 = stack.getNthElement(1).getValue();
                 try {
+                    String a1 = stack.getNthElement(2).getValue(), a2 = stack.getNthElement(1).getValue();
                     double d1 = Double.parseDouble(a1);
                     double d2 = Double.parseDouble(a2);
                     switch (topString) {
@@ -42,7 +42,7 @@ public class CalcRPNExpression {
                             break;
                     }
                 }
-                catch (NumberFormatException e) {
+                catch (NumberFormatException | NullPointerException e) {
                     StringBuilder stackContent = new StringBuilder();
                     do {
                         stackContent.append(stack.pop().getValue());
@@ -55,8 +55,13 @@ public class CalcRPNExpression {
         }
     }
 
+    private void clearStack() {
+        this.stack.clear();
+    }
+
     public double calcExpression(String e) throws IllegalRPNExpressionCalc
     {
+        clearStack();
         try {
             String[] splits = e.split(" ");
             for (String s : splits) {
@@ -66,18 +71,18 @@ public class CalcRPNExpression {
         }
         catch (IllegalRPNExpression exc) {
             StringBuilder stackContent = new StringBuilder();
-            do {
+            while (!stack.isEmpty()) {
                 stackContent.append(stack.pop().getValue());
                 stackContent.append(" ");
-            } while (!stack.isEmpty());
+            }
             throw new IllegalRPNExpressionCalc(e, stackContent.toString());
         }
         if (stack.getLength() != 1) {
             StringBuilder stackContent = new StringBuilder();
-            do {
+            while (!stack.isEmpty()) {
                 stackContent.append(stack.pop().getValue());
                 stackContent.append(" ");
-            } while (!stack.isEmpty());
+            }
             throw new IllegalRPNExpressionCalc(e, stackContent.toString());
         }
         return Double.parseDouble(stack.getTop().getValue());

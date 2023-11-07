@@ -52,4 +52,11 @@ public class RPNStack {
     public int getLength() {
         return length;
     }
+
+    public void clear() {
+        while (!isEmpty())
+        {
+            this.pop();
+        }
+    }
 }
