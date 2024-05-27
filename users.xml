@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<users>
+    <user>
+        <name>Василий</name>
+        <age>37</age>
+    </user>
+    <user>
+        <name>Роза</name>
+        <age>22</age>
+    </user>
+    <user>
+        <name>Роберт</name>
+        <age>48</age>
+    </user>
+</users>
